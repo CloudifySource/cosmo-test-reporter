@@ -27,17 +27,17 @@ from setuptools import setup
 version = '0.1'
 
 setup(
-    name='cosmo-nose-reporter-plugin',
+    name='cosmo-test-reporter',
     version=version,
     author='boris',
     author_email='boris@gigaspaces.com',
-    packages=['cosmo_nose_reporter_plugin'],
+    packages=['cosmo_test_reporter'],
     license='LICENSE',
     description='cosmo tests reporter plugin',
-    py_modules = ['cosmo_nose_reporter_plugin.cosmo_nose_xml_reporter_plugin'],
+    py_modules = ['cosmo_test_reporter.cosmo_nose_reporter_plugin.cosmo_nose_xml_reporter_plugin'],
     entry_points = {
         'nose.plugins.0.10': [
-            'xmlout = cosmo_nose_reporter_plugin.cosmo_nose_xml_reporter_plugin:XMLReporter'
+            'xmlout = cosmo_test_reporter.cosmo_nose_reporter_plugin.cosmo_nose_xml_reporter_plugin:XMLReporter'
         ]
     },
     install_requires=['requests', 'nose']
