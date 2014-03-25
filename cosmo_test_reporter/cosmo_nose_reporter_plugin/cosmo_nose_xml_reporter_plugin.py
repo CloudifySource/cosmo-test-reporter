@@ -154,8 +154,8 @@ class XMLReporter(Plugin):
     def beforeTest(self, test):
         """Initializes a timer before starting a test."""
         self._timer = time()
-        # self._startCapture()
-        # self.setupLoghandler()
+        self._startCapture()
+        self.setupLoghandler()
 
     def afterTest(self, test):
         taken = self._timeTaken()
