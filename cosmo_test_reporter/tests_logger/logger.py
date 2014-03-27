@@ -7,12 +7,13 @@ import config
 __author__ = 'nirb'
 
 
-def init_logger():
+def init_logger(file_name):
     if os.path.isfile(config.LOG_DIR):
         sys.exit('file {0} exists - cloudify log directory cannot be created '
                  'there. please remove the file and try again.'.format(config.LOG_DIR))
 
     try:
+        config.MODULE = file_name
         logfile = config.LOGGER['handlers']['file']['filename']
         d = os.path.dirname(logfile)
         if not os.path.exists(d):
