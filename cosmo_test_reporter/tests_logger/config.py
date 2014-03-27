@@ -5,7 +5,7 @@ __author__ = 'nirb'
 # logger configuration
 from os import path
 LOG_DIR = path.expanduser('./')
-MODULE = 'cli'
+MODULE = 'test'
 LOGGER = {
     "version": 1,
     "formatters": {
@@ -21,7 +21,7 @@ LOGGER = {
             "class": "logging.handlers.RotatingFileHandler",
             "formatter": "file",
             "level": "DEBUG",
-            "filename": "{0}/cloudify-{1}.log".format(LOG_DIR, MODULE),
+            "filename": "{0}/{1}.log".format(LOG_DIR, MODULE),
             "maxBytes": "5000000",
             "backupCount": "20"
         },

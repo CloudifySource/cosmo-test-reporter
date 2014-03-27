@@ -31,10 +31,10 @@ setup(
     version=version,
     author='boris',
     author_email='boris@gigaspaces.com',
-    packages=['cosmo_test_reporter'],
+    packages=['cosmo_test_reporter', 'cosmo_test_reporter.cosmo_nose_reporter_plugin',
+              'cosmo_test_reporter.tests_logger'],
     license='LICENSE',
     description='cosmo tests reporter plugin',
-    py_modules = ['cosmo_test_reporter.cosmo_nose_reporter_plugin.cosmo_nose_xml_reporter_plugin'],
     entry_points = {
         'nose.plugins.0.10': [
             'xmlout = cosmo_test_reporter.cosmo_nose_reporter_plugin.cosmo_nose_xml_reporter_plugin:XMLReporter'
