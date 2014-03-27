@@ -8,17 +8,19 @@ __author__ = 'nirb'
 
 
 def init_logger(file_name):
-    if os.path.isfile(config.LOG_DIR):
+
+    log_config = config.LoggerConfiguration(file_name)
+
+    if os.path.isfile(log_config.log_dir):
         sys.exit('file {0} exists - cloudify log directory cannot be created '
-                 'there. please remove the file and try again.'.format(config.LOG_DIR))
+                 'there. please remove the file and try again.'.format(log_config.log_dir))
 
     try:
-        config.MODULE = file_name
-        logfile = config.LOGGER['handlers']['file']['filename']
+        logfile = log_config.logger_conf['handlers']['file']['filename']
         d = os.path.dirname(logfile)
         if not os.path.exists(d):
             os.makedirs(d)
-        logging.config.dictConfig(config.LOGGER)
+        logging.config.dictConfig(log_config.logger_conf)
         lgr = logging.getLogger('main')
         lgr.setLevel(logging.INFO)
         flgr = logging.getLogger('file')
