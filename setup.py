@@ -40,5 +40,5 @@ setup(
             'xmlout = cosmo_test_reporter.cosmo_nose_reporter_plugin.cosmo_nose_xml_reporter_plugin:XMLReporter'
         ]
     },
-    install_requires=['requests', 'nose', 'json']
+    install_requires=['requests', 'nose']
 )
