@@ -1,15 +1,25 @@
+import os
+import errno
+from os import path
+
 __author__ = 'nirb'
 
 
 # flake8: NOQA
 # logger configuration
-from os import path
 
 
 class LoggerConfiguration():
 
-    def __init__(self, file_name):
-        self.log_dir = path.expanduser('.')
+    def __init__(self, file_name, dump_folder_path):
+
+        try:
+            os.makedirs(dump_folder_path)
+        except OSError as exception:
+            if exception.errno != errno.EEXIST:
+                raise
+
+        self.log_dir = path.expanduser(dump_folder_path)
         self.file = file_name
         self.logger_conf = {
             "version": 1,

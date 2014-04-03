@@ -15,7 +15,6 @@
 
 __author__ = 'boris'
 
-import sys
 try:
     import ez_setup
     ez_setup.use_setuptools()
@@ -32,7 +31,7 @@ setup(
     author='boris',
     author_email='boris@gigaspaces.com',
     packages=['cosmo_test_reporter', 'cosmo_test_reporter.cosmo_nose_reporter_plugin',
-              'cosmo_test_reporter.tests_logger'],
+              'cosmo_test_reporter.tests_logger', 'cosmo_test_reporter.utils', 'cosmo_test_reporter.dashboard'],
     license='LICENSE',
     description='cosmo tests reporter plugin',
     entry_points = {
@@ -40,5 +39,5 @@ setup(
             'xmlout = cosmo_test_reporter.cosmo_nose_reporter_plugin.cosmo_nose_xml_reporter_plugin:XMLReporter'
         ]
     },
-    install_requires=['requests', 'nose']
+    install_requires=['requests', 'nose', 'boto']
 )
