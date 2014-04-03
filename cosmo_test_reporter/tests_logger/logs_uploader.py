@@ -5,6 +5,6 @@ __author__ = 'nirb'
 
 
 def upload_logs():
-    s3_utils.upload_file_to_s3_cosmo_quality('../{0}'.format(params.BUILD_NUMBER))
+    s3_utils.upload_file_to_s3_cosmo_quality(params.BUILD_NUMBER)
 
 upload_logs()

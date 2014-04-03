@@ -10,7 +10,7 @@ __author__ = 'nirb'
 
 def init_logger(file_name):
 
-    log_config = config.LoggerConfiguration(file_name, params.BUILD_NUMBER)
+    log_config = config.LoggerConfiguration(file_name, '../{0}'.format(params.BUILD_NUMBER))
 
     if os.path.isfile(log_config.log_dir):
         sys.exit('file {0} exists - cloudify log directory cannot be created '
