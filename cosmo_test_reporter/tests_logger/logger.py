@@ -3,14 +3,13 @@ import logging.config
 import os
 import sys
 import config
-from cosmo_test_reporter.utils import params
 
 __author__ = 'nirb'
 
 
 def init_logger(file_name):
 
-    log_config = config.LoggerConfiguration(file_name, '../{0}'.format(params.BUILD_NUMBER))
+    log_config = config.LoggerConfiguration(file_name, '../tests_logs')
 
     if os.path.isfile(log_config.log_dir):
         sys.exit('file {0} exists - cloudify log directory cannot be created '
