@@ -3,13 +3,14 @@ import logging.config
 import os
 import sys
 import config
+from cosmo_test_reporter.tests_logger import handlers
 
 __author__ = 'nirb'
 
 
 def init_logger(file_name):
 
-    log_config = config.LoggerConfiguration(file_name, '../tests_logs')
+    log_config = config.LoggerConfiguration(file_name, '/export/tgrid/test-cosmo/tests_logs')
 
     if os.path.isfile(log_config.log_dir):
         sys.exit('file {0} exists - cloudify log directory cannot be created '
@@ -29,4 +30,12 @@ def init_logger(file_name):
         sys.exit('could not initialize logger.'
                  ' verify your logger config'
                  ' and permissions to write to {0}'.format(logfile))
+    return lgr
+
+
+def init_udp_json_logger():
+    lgr = logging.getLogger('udp_json_logger')
+    handler = handlers.UdpJsonHandler()
+    lgr.addHandler(handler)
+    lgr.setLevel(logging.INFO)
     return lgr
