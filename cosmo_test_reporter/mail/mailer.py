@@ -2,7 +2,7 @@ __author__ = 'nirb'
 
 import smtplib
 from email.mime.text import MIMEText
-from cosmo_test_reporter.utils import params
+from cosmo_test_reporter import params
 
 # Open a plain text file for reading.  For this example, assume that
 # the text file contains only ASCII characters.
